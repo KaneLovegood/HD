@@ -1,0 +1,357 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #000;
+  overflow-x: hidden;
+  color: #fff;
+}
+
+.birthday-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  animation: gradientMove 15s ease infinite;
+  background-size: 400% 400%;
+}
+
+.birthday-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+  opacity: 0.1;
+  z-index: 1;
+  animation: backgroundFloat 30s linear infinite;
+}
+
+.content {
+  text-align: center;
+  background: rgba(15, 15, 15, 0.95);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 700px;
+  width: 90%;
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: contentFloat 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.content::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff4b6e, #000, #ff7eb3);
+  border-radius: 22px;
+  z-index: -1;
+  animation: borderGlow 3s linear infinite;
+  opacity: 0.5;
+}
+
+.title {
+  font-family: 'Dancing Script', cursive;
+  background: linear-gradient(45deg, #ff4b6e, #ff7eb3, #ff4b6e);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  text-shadow: 0 0 10px rgba(255, 75, 110, 0.3);
+  line-height: 1.4;
+  cursor: default;
+  animation: textGlow 3s ease-in-out infinite;
+}
+
+.title:hover {
+  transform: scale(1.05) rotate3d(1, 1, 0, 15deg);
+  text-shadow: 0 0 20px rgba(255, 75, 110, 0.6);
+  letter-spacing: 2px;
+}
+
+.name {
+  font-family: 'Dancing Script', cursive;
+  color: #ff758c;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.message {
+  font-family: 'Montserrat', sans-serif;
+  color: #4a4a4a;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.message p {
+  margin: 1.5rem 0;
+  font-size: 1.2rem;
+}
+
+.cake {
+  font-size: 5rem;
+  margin: 2rem 0;
+  animation: float 3s ease-in-out infinite;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.next-button {
+  background: linear-gradient(45deg, #1a1a1a, #333);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: buttonPulse 2s infinite;
+}
+
+.next-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.next-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 7px 20px rgba(255, 255, 255, 0.2);
+  background: linear-gradient(45deg, #333, #1a1a1a);
+}
+
+.next-button:hover::before {
+  left: 100%;
+}
+
+/* Hiệu ứng hoa rơi */
+.flower {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M12,2C13.1,2 14,2.9 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4C10,2.9 10.9,2 12,2M15.5,8C16.3,8 17,8.7 17,9.5C17,10.3 16.3,11 15.5,11C14.7,11 14,10.3 14,9.5C14,8.7 14.7,8 15.5,8M8.5,8C9.3,8 10,8.7 10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5C7,8.7 7.7,8 8.5,8M12,11C13.1,11 14,11.9 14,13C14,14.1 13.1,15 12,15C10.9,15 10,14.1 10,13C10,11.9 10.9,11 12,11Z" /></svg>');
+  background-size: contain;
+  opacity: 0.3;
+  animation: fall linear infinite;
+  z-index: 1;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: translateX(-100%) rotate3d(0, 1, 0, -90deg);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateX(0) rotate3d(0, 1, 0, 0);
+  transition: all 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateX(0) rotate3d(0, 1, 0, 0);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateX(100%) rotate3d(0, 1, 0, 90deg);
+  transition: all 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes backgroundFloat {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(-10px) translateY(-10px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes contentFloat {
+  0%, 100% {
+    transform: translateY(0) rotate3d(1, 1, 1, 0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate3d(1, 1, 1, 2deg);
+  }
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+    text-shadow: 0 0 10px rgba(255, 75, 110, 0.3);
+  }
+  50% {
+    background-position: 100% 50%;
+    text-shadow: 0 0 20px rgba(255, 75, 110, 0.6);
+  }
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255, 117, 140, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 117, 140, 0.8);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .content {
+    padding: 2rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .button-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
